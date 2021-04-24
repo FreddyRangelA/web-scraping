@@ -18,9 +18,11 @@ def scrape():
     wdiv=soup.find('ul', "item_list")
     
     news_title = wdiv.find_all('div', "content_title")[0].text
+    news_title_dic={'news_title':news_title}
     #print(news_title)
 
     news_p = wdiv.find_all('div', "article_teaser_body")[0].text
+    news_p_dic={'news_paragraph':news_p}
     #print(news_p)
     #time.sleep(10)
 
@@ -40,6 +42,7 @@ def scrape():
     #print(srt_url_2)
 
     featured_image_url=srt_url_2+wdiv_jpl.find_all('img')[1]["src"]
+    img_url_dic={'featured_image':featured_image_url}
     #print(featured_image_url)
 
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -54,8 +57,8 @@ def scrape():
     mars_facts = pd.read_html(url_mars_facts)[0]
     mars_facts.columns=["Facts","Values"]
     mars_df = mars_facts.set_index(["Facts"])
-
-    HTML(mars_df.to_html(classes='table table-striped'))
+    mars_df_dic={'facts':mars_df}
+    #HTML(mars_df.to_html(classes='table table-striped'))
     #time.sleep(10)
 
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -114,9 +117,22 @@ def scrape():
     for i in range(4):
         return_data={'title':title_lis[i],'img_url':image_list[i]}
         hemisphere_image_urls.append(return_data)
-    return hemisphere_image_urls
+        #hemisphere_image_urls
     #return return_data
+    b_dic=[]
+    a_dic={}
+    a_dic={'news_title':news_title_dic,'news_p':news_p_dic,'img':img_url_dic,'hemi_images': hemisphere_image_urls}
+    #b_dic.append(news_title_dic)
+    #b_dic.append(news_p_dic)
+    #b_dic.append(img_url_dic)
+    #b_dic.append(mars_df_dic)
+    #b_dic.append(a_dic)
+    
+
+    return a_dic
     driver.close()
+
+
     
 
 if __name__ == "__main__":

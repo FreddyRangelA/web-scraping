@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
+  <title>mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -14,7 +14,15 @@
     <div class="jumbotron text-center">
 
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-      <h3>dictionary data title:{{data.title}}</h3>
+      <h3>dictionary data title:{{data.news_title.news_title}}</h3>
+      <h3>dictionary data P:{{data.news_p.news_paragraph}}</h3>
+      
+      <img src="{{data.img.featured_image}}" alt="image 1">
+      
+      <img src="{{data.hemi_images[0].img_url}}">
+      {% for data in list %}
+        <li><img src="{{data.hemi_images[0].img_url}}"></li>
+      {% endfor %}
     </div>
   </div>
 </body>
