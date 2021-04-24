@@ -17,12 +17,12 @@
       <h3>dictionary data title:{{data.news_title.news_title}}</h3>
       <h3>dictionary data P:{{data.news_p.news_paragraph}}</h3>
       
+      {{data.facts.facts | safe}}
+
       <img src="{{data.img.featured_image}}" alt="image 1">
-      
-      <img src="{{data.hemi_images[0].img_url}}">
-      {% for data in list %}
-        <li><img src="{{data.hemi_images[0].img_url}}"></li>
-      {% endfor %}
+      <!---{% for img_url in data %}--->
+        <img src="{{data.hemi_images}}">
+      <!---{% endfor %}--->
     </div>
   </div>
 </body>

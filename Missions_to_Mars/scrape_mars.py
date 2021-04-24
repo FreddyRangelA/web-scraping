@@ -55,9 +55,11 @@ def scrape():
     table=soup.find('table', id="tablepress-p-mars-no-2")
 
     mars_facts = pd.read_html(url_mars_facts)[0]
-    mars_facts.columns=["Facts","Values"]
-    mars_df = mars_facts.set_index(["Facts"])
-    mars_df_dic={'facts':mars_df}
+    mars_facts.columns=["Description","Mars"]
+    mars_facts = mars_facts.set_index(["Description"])
+    mars_facts=mars_facts.to_html(classes='table table-striped')
+    mars_facts_dic={'facts':mars_facts}
+    mars_facts_dic
     #HTML(mars_df.to_html(classes='table table-striped'))
     #time.sleep(10)
 
@@ -110,24 +112,20 @@ def scrape():
 
     time.sleep(10)
 
-    hemisphere_image_urls=[]
+
 
     
-    return_data = {}
-    for i in range(4):
-        return_data={'title':title_lis[i],'img_url':image_list[i]}
-        hemisphere_image_urls.append(return_data)
-        #hemisphere_image_urls
-    #return return_data
-    b_dic=[]
-    a_dic={}
-    a_dic={'news_title':news_title_dic,'news_p':news_p_dic,'img':img_url_dic,'hemi_images': hemisphere_image_urls}
-    #b_dic.append(news_title_dic)
-    #b_dic.append(news_p_dic)
-    #b_dic.append(img_url_dic)
-    #b_dic.append(mars_df_dic)
-    #b_dic.append(a_dic)
     
+    test_dic2={'image_mars1':{'title':title_lis[0],'img_url':image_list[0]},
+            'image_mars2':{'title':title_lis[1],'img_url':image_list[1]},
+            'image_mars3':{'title':title_lis[2],'img_url':image_list[2]},
+            'image_mars4':{'title':title_lis[3],'img_url':image_list[3]}}
+    #return return_data
+    
+    a_dic={}
+    a_dic={'news_title':news_title_dic,'news_p':news_p_dic,'img':img_url_dic,'hemi_images': test_dic2, 'facts':mars_facts_dic}
+  
+    time.sleep(10)
 
     return a_dic
     driver.close()
