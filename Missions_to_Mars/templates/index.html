@@ -12,17 +12,42 @@
 <body>
   <div class="container-fluid">
     <div class="jumbotron text-center">
-
+      <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-      <h3>dictionary data title:{{data.news_title.news_title}}</h3>
-      <h3>dictionary data P:{{data.news_p.news_paragraph}}</h3>
-      
-      {{data.facts.facts | safe}}
+     
+    </div>
+    <div id=marsBody >
+      <div>
+        <h2> Latest Mars News</h2>
+        <h3>dictionary data title:{{data.news_title.news_title}}</h3>
+        <h4>dictionary data P:{{data.news_p.news_paragraph}}</h4>
 
-      <img src="{{data.img.featured_image}}" alt="image 1">
+      </div>
+      <div id="image_table" class="container">
+        <div class="row">
+          <div class="clo-md-3">
+            <section id="main_body" class="table-wrapper-scroll-y  my-custom-scrollbar table-wrapper">
+              <table border="1" class="dataframe table-striped table-bordered table-striped mb-0 ">
+                {{data.facts.facts | safe}}
+              </table>
+
+            </section>
+            
+          </div>
+          <div  class="clo-md-3">
+            <img src="{{data.img.featured_image}}" alt="image 1">
+
+          </div>
+          
+        </div>
+
+        
+      </div>
+ 
       <!---{% for img_url in data %}--->
         <img src="{{data.hemi_images}}">
       <!---{% endfor %}--->
+
     </div>
   </div>
 </body>
