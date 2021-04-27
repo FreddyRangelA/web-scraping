@@ -10,66 +10,90 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-     
-    </div>
-    <div id=marsBody >
-      <div>
-        <h2> Latest Mars News</h2>
-        <h3>{{data.news_title.news_title}}</h3>
-        <h4>{{data.news_p.news_paragraph}}</h4>
-
+  <section>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      
       </div>
-      <div id="image_table" class="container">
-        <div class="row">
-          <div class="clo-md-3">
-            <section id="main_body" class="table-wrapper-scroll-y  my-custom-scrollbar table-wrapper">
-              <table border="1" class="dataframe table-striped table-bordered table-striped mb-0 ">
-                {{data.facts.facts | safe}}
-              </table>
+      <div id=marsBody >
+        <div>
+          <h2> Latest Mars News</h2>
+          <h3>{{data.news_title.news_title}}</h3>
+          <h4>{{data.news_p.news_paragraph}}</h4>
 
-            </section>
-            
-          </div>
-          <div  class="clo-md-3">
-            <img src="{{data.img.featured_image}}" alt="image 1">
-
-          </div>
+        </div>
+        <section>
+          
           <div id="image_table" class="container">
             <div class="row">
-              <div class="clo-md-3">
-                <img src="{{data.hemi_images.image_mars1.img_url}}" alt="image 1">
+              <div class="clo-md-2 ">
+                <section id="main_body" class="table-wrapper">
+                  <h1>Mars Fact</h1>
+                  <table border="1" class="dataframe table-striped table-bordered table-striped mb-0 ">
+                    {{data.facts.facts | safe}}
+                  </table>
+
+                </section>
+                
+              </div>
+              <div class="w-100"></div>
+              <div  class="clo-md-2">
+                <h1>Featured Mars Image</h1>
+                <img src="{{data.img.featured_image}}" alt="image 1">
 
               </div>
-              <div class="clo-md-3">
-                <img src="{{data.hemi_images.image_mars2.img_url}}" alt="image 1">
-
-              </div>
-              <div class="clo-md-3">
-                <img src="{{data.hemi_images.image_mars3.img_url}}" alt="image 1">
-
-              </div>
-              <div class="clo-md-3">
-                <img src="{{data.hemi_images.image_mars4.img_url}}" alt="image 1">
-
-              </div>
-
+              
+              
             </div>
-            
-
           </div>
+        </section>
+      </div>
           
+    </div>
+  </section>
+
+  <div>
+    
+    <div id="image_table" class="container">
+      <div class="row justify-content-md-center">
+        <h1>Mars hemispheres</h1>
+        <div class="clo-md-6">
+          <div class="thumbnail">
+            <img src="{{data.hemi_images.image_mars1.img_url}}" alt="image 1">
+            <h2>{{data.hemi_images.image_mars1.title}}</h2>
+          </div>
+        </div>
+        <div class="clo-md-6">
+          <div class="thumbnail">
+            <img src="{{data.hemi_images.image_mars2.img_url}}" alt="image 1">
+            <h2>{{data.hemi_images.image_mars2.title}}</h2>
+          </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="clo-md-6">
+          <div class="thumbnail">
+            <img src="{{data.hemi_images.image_mars3.img_url}}" alt="image 1">
+            <h2>{{data.hemi_images.image_mars3.title}}</h2>
+          </div>
+        </div>
+        <div class="clo-md-6">
+          <div class="thumbnail">
+            <img src="{{data.hemi_images.image_mars4.img_url}}" alt="image 1">
+            <h2>{{data.hemi_images.image_mars4.title}}</h2>
+          </div>
         </div>
 
-        
       </div>
-
+      
 
     </div>
+
+    
   </div>
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </body>
 
 </html>
