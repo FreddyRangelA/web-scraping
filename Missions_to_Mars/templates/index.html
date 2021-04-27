@@ -19,8 +19,8 @@
     <div id=marsBody >
       <div>
         <h2> Latest Mars News</h2>
-        <h3>dictionary data title:{{data.news_title.news_title}}</h3>
-        <h4>dictionary data P:{{data.news_p.news_paragraph}}</h4>
+        <h3>{{data.news_title.news_title}}</h3>
+        <h4>{{data.news_p.news_paragraph}}</h4>
 
       </div>
       <div id="image_table" class="container">
@@ -38,15 +38,35 @@
             <img src="{{data.img.featured_image}}" alt="image 1">
 
           </div>
+          <div id="image_table" class="container">
+            <div class="row">
+              <div class="clo-md-3">
+                <img src="{{data.hemi_images.image_mars1.img_url}}" alt="image 1">
+
+              </div>
+              <div class="clo-md-3">
+                <img src="{{data.hemi_images.image_mars2.img_url}}" alt="image 1">
+
+              </div>
+              <div class="clo-md-3">
+                <img src="{{data.hemi_images.image_mars3.img_url}}" alt="image 1">
+
+              </div>
+              <div class="clo-md-3">
+                <img src="{{data.hemi_images.image_mars4.img_url}}" alt="image 1">
+
+              </div>
+
+            </div>
+            
+
+          </div>
           
         </div>
 
         
       </div>
- 
-      <!---{% for img_url in data %}--->
-        <img src="{{data.hemi_images}}">
-      <!---{% endfor %}--->
+
 
     </div>
   </div>
